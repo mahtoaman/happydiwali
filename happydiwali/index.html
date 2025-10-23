@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            background: linear-gradient(135deg, #0a0015, #1a0033, #2d004d, #1a0033);
+            background: linear-gradient(135deg, #000000, #0a0015, #150028, #0a0015);
             overflow: hidden;
             font-family: 'Cinzel', serif;
             cursor: crosshair;
@@ -328,44 +328,44 @@
                 bottom: 20px;
             }
         }
+
         .footer {
-  position: fixed;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #ffd700;
-  font-family: 'Cinzel', serif;
-  text-align: center;
-  font-size: 1.1rem;
-  z-index: 1100;
-  background: rgba(10, 0, 30, 0.6);
-  padding: 8px 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #ffac33;
-  user-select: none;
-}
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffd700;
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            font-size: 1.1rem;
+            z-index: 1100;
+            background: rgba(10, 0, 30, 0.6);
+            padding: 8px 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px #ffac33;
+            user-select: none;
+        }
 
-.footer a.github-link {
-  color: #ffd700;
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-}
+        .footer a.github-link {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
 
-.footer a.github-link:hover {
-  color: #fff;
-}
+        .footer a.github-link:hover {
+            color: #fff;
+        }
 
-.footer svg {
-  fill: #ffd700;
-  transition: fill 0.3s ease;
-}
+        .footer svg {
+            fill: #ffd700;
+            transition: fill 0.3s ease;
+        }
 
-.footer a.github-link:hover svg {
-  fill: #fff;
-}
-
+        .footer a.github-link:hover svg {
+            fill: #fff;
+        }
     </style>
 </head>
 
@@ -378,17 +378,17 @@
     </div>
 
     <script>
-         const wishes = [
-                "Diwali comes from the word 'Deepawali,",
-                "which has two words 'Deepa' means 'LIGHT' and 'Awali' means 'Carrier' 🌟",
-                "therefore 'Deepa' or diya (1) signifies ‘coming to light’. 🍬",
-                "In the vedic literature it is mentioned: ‘tamasa ma, jyotir gamaya’  🪔",
-                "means ‘do not remain in darkness, come to light’, 💫",
-                "meaning ‘come to spiritual awareness or awakening’. 😊",
-                "Wishing you wealth and good fortune! 💰",
-                "May the divine light of Lord Rama’s victory over darkness illuminate your life with joy, peace, and prosperity. Wishing you a blessed and joyful Diwali filled with love and devotion.",
-                "HARE KRSNA",
-            ];
+        const wishes = [
+            "Diwali comes from the word 'Deepawali,",
+            "which has two words 'Deepa' means 'LIGHT' and 'Awali' means 'Carrier' 🌟",
+            "therefore 'Deepa' or diya (1) signifies ‘coming to light’. 🍬",
+            "In the vedic literature it is mentioned: ‘tamasa ma, jyotir gamaya’  🪔",
+            "means ‘do not remain in darkness, come to light’, 💫",
+            "meaning ‘come to spiritual awareness or awakening’. 😊",
+            "Wishing you wealth and good fortune! 💰",
+            "May the divine light of Lord Rama’s victory over darkness illuminate your life with joy, peace, and prosperity. Wishing you a blessed and joyful Diwali filled with love and devotion.",
+            "HARE KRSNA",
+        ];
 
         let activeDiyas = [];
         const maxDiyas = 7;
@@ -596,39 +596,39 @@
         // Show wish popup
         let currentWishPopup = null; // Add this line near your other variables
 
-            function showWish(x, y) {
-                // Remove old wish popup if present
-                if (currentWishPopup) {
-                    currentWishPopup.remove();
-                    currentWishPopup = null;
-                }
-
-                const wish = document.createElement('div');
-                wish.className = 'wish-popup';
-                wish.textContent = wishes[currentWishIndex];
-
-                // Move to next wish, reset to beginning if we've shown all
-                currentWishIndex = (currentWishIndex + 1) % wishes.length;
-
-                // Position near click but ensure it's visible
-                const maxX = window.innerWidth - 320;
-                const maxY = window.innerHeight - 100;
-                wish.style.left = Math.min(Math.max(x - 150, 10), maxX) + 'px';
-                wish.style.top = Math.min(Math.max(y - 50, 10), maxY) + 'px';
-
-                document.body.appendChild(wish);
-                currentWishPopup = wish;  // Store reference to current active wish
+        function showWish(x, y) {
+            // Remove old wish popup if present
+            if (currentWishPopup) {
+                currentWishPopup.remove();
+                currentWishPopup = null;
             }
 
-                document.addEventListener('click', (e) => {
-                    const x = e.clientX;
-                    const y = e.clientY;
+            const wish = document.createElement('div');
+            wish.className = 'wish-popup';
+            wish.textContent = wishes[currentWishIndex];
 
-                    createFirecracker(x, y);
+            // Move to next wish, reset to beginning if we've shown all
+            currentWishIndex = (currentWishIndex + 1) % wishes.length;
 
-                    // Show wish immediately, no delay
-                    showWish(x, y);
-                });
+            // Position near click but ensure it's visible
+            const maxX = window.innerWidth - 320;
+            const maxY = window.innerHeight - 100;
+            wish.style.left = Math.min(Math.max(x - 150, 10), maxX) + 'px';
+            wish.style.top = Math.min(Math.max(y - 50, 10), maxY) + 'px';
+
+            document.body.appendChild(wish);
+            currentWishPopup = wish;  // Store reference to current active wish
+        }
+
+        document.addEventListener('click', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+
+            createFirecracker(x, y);
+
+            // Show wish immediately, no delay
+            showWish(x, y);
+        });
 
         // Add some floating particles
         function createFloatingParticle() {
@@ -671,7 +671,7 @@
     </script>
     <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9918a794769da735',t:'MTc2MDk2NDc3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
     <footer class="footer">
-       
+
         <p>
             Created by
             <a href="https://github.com/mahtoaman" target="_blank" rel="noopener noreferrer" class="github-link">
@@ -684,7 +684,7 @@
             </a>
         </p>
     </footer>
-      
+
 </body>
 
 </html>
